@@ -1,0 +1,18 @@
+{
+    "name": "sebsel/flysystem-local-git",
+    "description": "A Flysystem adapter for a local git repository",
+    "require": {
+        "league/flysystem": "~1.0",
+        "symfony/process": "^4.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2",
+        "mockery/mockery": "^1.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sebsel\\Flysystem\\LocalGit\\": "src/"
+        }
+    }
+}
