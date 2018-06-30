@@ -13,5 +13,12 @@
         "psr-4": {
             "Sebsel\\Flysystem\\LocalGit\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sebsel\\Flysystem\\LocalGit\\LocalGitServiceProvider"
+            ]
+        }
     }
 }
