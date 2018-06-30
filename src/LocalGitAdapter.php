@@ -32,7 +32,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::write($path, $contents, $config);
 
-        $this->commit();
+        $this->commit('created ' . basename($path));
 
         return $return;
     }
@@ -49,7 +49,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::writeStream($path, $resource, $config);
 
-        $this->commit();
+        $this->commit('created ' . basename($path));
 
         return $return;
     }
@@ -67,7 +67,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::update($path, $contents, $config);
 
-        $this->commit();
+        $this->commit('updated ' . basename($path));
 
         return $return;
     }
@@ -84,7 +84,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::updateStream($path, $resource, $config);
 
-        $this->commit();
+        $this->commit('updated ' . basename($path));
 
         return $return;
     }
@@ -100,7 +100,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::rename($path, $newpath);
 
-        $this->commit();
+        $this->commit('moved ' . basename($path));
 
         return $return;
     }
@@ -116,7 +116,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::copy($path, $newpath);
 
-        $this->commit();
+        $this->commit('copied ' . basename($path));
 
         return $return;
     }
@@ -131,7 +131,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::delete($path);
 
-        $this->commit();
+        $this->commit('deleted ' . basename($path));
 
         return $return;
     }
@@ -146,7 +146,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::deleteDir($dirname);
 
-        $this->commit();
+        $this->commit('deleted ' . basename($dirname));
 
         return $return;
     }
@@ -162,7 +162,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::createDir($dirname, $config);
 
-        $this->commit();
+        $this->commit('created ' . basename($dirname));
 
         return $return;
     }
@@ -178,7 +178,7 @@ class LocalGitAdapter extends Local {
 	{
         $return = parent::createDir($path, $visibility);
 
-        $this->commit();
+        $this->commit('modified ' . basename($path));
 
         return $return;
     }
