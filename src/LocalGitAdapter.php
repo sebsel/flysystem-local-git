@@ -11,7 +11,7 @@ class LocalGitAdapter extends Local {
     {
         $git = Git::for($this->getPathPrefix());
 
-        if (!$git->isRepository()) {
+        if (!$git->isRepositoryRoot()) {
             $git->init();
         }
 

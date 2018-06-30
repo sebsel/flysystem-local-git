@@ -36,6 +36,28 @@ class GitTest extends TestCase {
         );
     }
 
+        /** @test */
+    public function it_detects_the_root_of_git_repositories()
+    {
+        shell_exec('cd ' . $this->root . ' && git init');
+        mkdir($this->root . 'subfolder');
+
+        $this->assertTrue(
+            Git::for($this->root . 'subfolder')->isRepository(),
+            'Failed to assert that ' . $this->root . '/subfolder is a git repository.'
+        );
+
+        $this->assertFalse(
+            Git::for($this->root . 'subfolder')->isRepositoryRoot(),
+            'Failed to assert that ' . $this->root . 'subfolder is the root of a git repository.'
+        );
+
+        $this->assertTrue(
+            Git::for($this->root)->isRepositoryRoot(),
+            'Failed to assert that ' . $this->root . ' is the root of a git repository.'
+        );
+    }
+
     /** @test */
     public function it_inits_git_repositories()
     {

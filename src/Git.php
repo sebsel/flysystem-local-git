@@ -18,6 +18,16 @@ class Git {
         return strpos($this->git('status'), 'Not a git repository') === false;
     }
 
+    public function isRepositoryRoot()
+    {
+        if (!$this->isRepository()) return false;
+
+        $gitPath = $this->git('rev-parse --show-toplevel');
+        $path = realpath($this->path) ?: $this->path;
+
+        return rtrim($gitPath, "/\n") === rtrim($path, "/\n");
+    }
+
     public function init()
     {
         $this->git('init');
