@@ -7,7 +7,7 @@ use League\Flysystem\Config;
 
 class LocalGitAdapter extends Local {
 
-    protected function commit()
+    protected function commit($message)
     {
         $git = Git::for($this->getPathPrefix());
 
@@ -16,7 +16,7 @@ class LocalGitAdapter extends Local {
         }
 
         $git->addAll();
-        $git->commit('message is postponed');
+        $git->commit($message);
     }
 
 
