@@ -53,7 +53,8 @@ class Git {
         return $process->getOutput() . $process->getErrorOutput();
     }
 
-    public static function for($path) {
+    public static function for($path) 
+    {
         return new static($path);
     }
 }

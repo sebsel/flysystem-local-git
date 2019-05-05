@@ -10,6 +10,7 @@ class LocalGitServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
+     * 
      * @return void
      */
     public function boot()
